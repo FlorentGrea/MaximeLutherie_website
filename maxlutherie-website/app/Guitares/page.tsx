@@ -19,12 +19,12 @@ export default async function GuitaresPage() {
 
     return (
         <section className="w-full py-12 md:py-16 lg:py-20">
-            <div className="container mx-auto px-4 md:px-6 lg:px-8 flex flex-wrap justify-between">
+            <div className="container mx-auto px-4 md:px-6 lg:px-8 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
                 { guitarList.map((guitar) => {
                     const imageUrl = process.env.DB_ADDR + 'api/files/' + guitar.collectionId + '/' + guitar.id + '/' + guitar.Description.Image
 
                     return (
-                        <Link key={guitar.id} href={`/Guitares/${guitar.id}`} className="sm:w-[49%] lg:w-[32%] mb-8">
+                        <Link key={guitar.id} href={`/Guitares/${guitar.id}`}>
                             <Card>
                               <Image
                                 alt={guitar.Title}
