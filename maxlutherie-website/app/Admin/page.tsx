@@ -1,0 +1,13 @@
+import { getSession } from '@auth0/nextjs-auth0';
+import { redirect } from 'next/navigation';
+
+
+export default async function AdminPage() {
+    const session = await getSession();
+    const user = session?.user;
+
+    if (!user)
+        redirect ('/api/auth/login')
+    else
+        redirect ('/')
+}
