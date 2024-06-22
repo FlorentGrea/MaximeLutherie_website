@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Image from 'next/image';
 import { Card, CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
+import { PlusIcon } from '@/components/ui/icons';
 
 export default function MainPartAdmin({ newGuitar, setNewGuitar }: any) {
     const [file, setFile] = useState(newGuitar.Description.Image ? process.env.NEXT_PUBLIC_DB_ADDR + 'api/files/' + newGuitar.collectionId + '/' + newGuitar.id + '/' + newGuitar.Description.Image : '')
@@ -43,13 +44,7 @@ export default function MainPartAdmin({ newGuitar, setNewGuitar }: any) {
                 />
                 <label className='absolute flex items-center justify-center top-0 w-full h-full'>
                     <input type="file" onChange={getFile} accept='image/*' className='hidden' />
-                    <Image 
-                        src='/Icons/plus.svg'
-                        width={50}
-                        height={50}
-                        alt="Ajouter / changer l'image"
-                        className='filter-white'
-                    />
+                    <PlusIcon className='filter-white' />
                 </label>
                 <CardContent className='absolute flex items-center bottom-0 w-full h-[20%] pl-4 bg-gradient-to-t from-black/60'>
                     <Input type='text' placeholder='Titre' value={newGuitar.Description.Title} onChange={(event) => changeText(event)} className='bg-transparent text-white'/>

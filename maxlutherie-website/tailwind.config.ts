@@ -19,6 +19,19 @@ const config = {
     },
     extend: {
       colors: {
+        'brandy-punch': {
+          '50': '#fbf8ef',
+          '100': '#f3e8d2',
+          '200': '#e6d0a1',
+          '300': '#d9b470',
+          '400': '#d09d4f',
+          '500': '#c58139',
+          '600': '#af6630',
+          '700': '#924c2b',
+          '800': '#773d29',
+          '900': '#633424',
+          '950': '#381910',
+        },
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",

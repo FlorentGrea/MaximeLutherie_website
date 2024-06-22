@@ -1,6 +1,8 @@
 'use client'
 
+import { DropdownMenuTrigger, DropdownMenuItem, DropdownMenuContent, DropdownMenu } from "@/components/ui/dropdown-menu"
 import { useUser } from '@auth0/nextjs-auth0/client';
+import { Button } from "@/components/ui/button"
 import { usePathname } from 'next/navigation'
 import * as Icons from './ui/icons';
 import Link from 'next/link'
@@ -9,54 +11,60 @@ import React from 'react';
 
 //Navigation Bar.
 //The const pages define each pages.
-//You need to add the svg Icon associated to the name in the icon.tsx file
-//Each link will be displayed as an Icon, except if the screen have a width superior to 1280px, then they will be displayed as text.
+//Each link will displayed in dropdown menu, except if the screen have a width superior to 1280px, then they will be displayed as a line.
 //the last li is for logging out of admin mode
 
 export default function Nav() {
-  const pages = [
-    {
-      name: 'Guitares',
-      iconComponent: Icons.GuitaresIcon 
-    },
-    {
-      name: 'Ateliers',
-      iconComponent: Icons.AteliersIcon
-    },
-    {
-      name: 'Photos',
-      iconComponent: Icons.PhotosIcon 
-    },
-    {
-      name: 'Contact',
-      iconComponent: Icons.ContactIcon
-    }
-  ]
+  const pages = [ 'Guitares', 'Ateliers', 'Photos', 'Contact' ]
   const currentRoute = usePathname()
   const { user } = useUser();
 
   return (
-    <nav className="flex items-center space-x-1 sm:space-x-4 md:space-x-6 lg:space-x-8">
-      { pages.map((page) => {
+    <nav className="flex items-center space-x-1 sm:space-x-4 md:space-x-6 lg:space-x-8 text-brandy-punch-950">
+      <div className='hidden lg:flex'>
+        { pages.map((page) => {
 
-        return (
-          <div key={page.name}>
-            <Link href={'/' + page.name} className="block px-1 sm:px-2 md:px-3">
-              <page.iconComponent className={`md:hidden ${currentRoute.startsWith('/' + page.name) ? 'filter-orange' : ' filter-white'}`} />
-              <p className={`hidden md:flex items-center hover:text-gray-400 transition-colors ${currentRoute.startsWith('/' + page) ? 'text-red' : 'text-white'}`}>
-                {page.name.toUpperCase()}
-              </p>
-            </Link>
-          </div>
-      )})}
-      { user && (
-        <Link href="/api/auth/logout" className="block px-1 sm:px-2 md:px-3">
-          <Icons.LogoutIcon className='md:hidden filter-white' />
-          <p className='hidden md:flex items-center text-white hover:text-gray-400 transition-colors'>
-            DÉCONNEXION
-          </p>
-        </Link>
-      )}
+          return (
+            <div key={page}>
+              <Link href={'/' + page} className={`block px-1 sm:px-2 md:px-3 items-center hover:text-brandy-punch-600 transition-colors ${currentRoute == '/' + page && `text-brandy-punch-200`}`}>
+                  {page.toUpperCase()}
+              </Link>
+            </div>
+        )})}
+        { user && (
+          <Link href="/api/auth/logout" className="block px-1 sm:px-2 md:px-3 items-center hover:text-brandy-punch-600 transition-colors">
+              DÉCONNEXION
+          </Link>
+        )}
+      </div>
+      <div className="lg:hidden">
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <Button className="rounded-full border-none" size="icon" variant="outline">
+              <Icons.MenuIcon className="h-6 w-6" />
+              <span className="sr-only">Toggle navigation menu</span>
+            </Button>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent align="end" className="w-48">
+            { pages.map((page) => {
+
+              return (
+                <DropdownMenuItem key={page}>
+                  <Link  className={`block w-full ${currentRoute == '/' + page && `text-brandy-punch-200`}`} href={'/' + page}>
+                    {page.toUpperCase()}
+                  </Link>
+                </DropdownMenuItem>
+            )})}
+            { user && (
+              <DropdownMenuItem>
+                <Link className="block w-full" href="/api/auth/logout">
+                  DÉCONNEXION
+                </Link>
+              </DropdownMenuItem>
+            )}
+          </DropdownMenuContent>
+        </DropdownMenu>
+      </div>
     </nav>
   )
 }

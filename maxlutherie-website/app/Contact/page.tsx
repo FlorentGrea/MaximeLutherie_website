@@ -3,6 +3,7 @@ import { Textarea } from "@/components/ui/textarea"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
+import { Card } from "@/components/ui/card"
 import PocketBase from 'pocketbase';
 
 export default async function ContactPage({ searchParams }: any) {
@@ -11,10 +12,10 @@ export default async function ContactPage({ searchParams }: any) {
 
   return (
     <section className="w-full py-12 md:py-16 lg:py-20">
-      <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-md space-y-6">
+      <Card className='container py-6 mx-auto px-4 md:px-6 lg:px-8 max-w-md space-y-6 bg-brandy-punch-200 text-brandy-punch-950'>
         <div className="space-y-2 text-center">
           <h1 className="text-3xl font-bold">Contactez-nous</h1>
-          <p className="text-gray-500 dark:text-gray-400">
+          <p className="text-brandy-punch-600">
             Remplissez le formulaire ci-dessous et nous vous répondrons dès que possible.
           </p>
         </div>
@@ -47,11 +48,11 @@ export default async function ContactPage({ searchParams }: any) {
             <Label htmlFor="message">Message</Label>
             <Textarea className="min-h-[120px]" id="message" placeholder="Entrez votre message" required />
           </div>
-          <Button className="w-full" type="submit">
+          <Button className="w-full bg-brandy-punch-500 text-brandy-punch-50" type="submit">
             Envoyer
           </Button>
         </form>
-      </div>
+      </Card>
     </section>
   )
 }

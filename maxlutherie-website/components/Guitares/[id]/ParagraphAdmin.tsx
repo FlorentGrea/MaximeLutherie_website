@@ -1,11 +1,12 @@
 'use client'
 
+import { Card, CardContent } from '@/components/ui/card';
+import { Textarea } from '@/components/ui/textarea';
+import { PlusIcon } from '@/components/ui/icons';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
 import { useState } from 'react';
 import Image from 'next/image';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent } from '@/components/ui/card';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
 
 export default function ParagraphAdmin({ newGuitar, setNewGuitar, parTodel, setParToDel, paragraph, index }: any) {
     const [file, setFile] = useState(paragraph.Image ? process.env.NEXT_PUBLIC_DB_ADDR + 'api/files/' + newGuitar.collectionId + '/' + newGuitar.id + '/' + paragraph.Image : '')
@@ -71,13 +72,7 @@ export default function ParagraphAdmin({ newGuitar, setNewGuitar, parTodel, setP
                     />
                     <label className='absolute flex items-center justify-center top-0 w-full h-full'>
                         <input type="file" onChange={getFile} accept='image/*' className='hidden' />
-                        <Image
-                            src='/Icons/plus.svg'
-                            width={50}
-                            height={50}
-                            alt="Ajouter / changer l'image"
-                            className='filter-white'
-                        />
+                        <PlusIcon className='filter-white' />
                     </label>
                 </div>
                 <CardContent className='flex flex-col content-center w-full lg:w-[49.5%] lg:pt-6'>

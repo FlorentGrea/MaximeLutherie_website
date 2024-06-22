@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+.filter-brandy-punch{
+  filter: brightness(0) saturate(100%) invert(9%) sepia(26%) saturate(2035%) hue-rotate(333deg) brightness(100%) contrast(95%);
+}
+
 .filter-orange{
   filter: invert(38%) sepia(62%) saturate(1640%) hue-rotate(13deg) brightness(95%) contrast(99%);
 }
