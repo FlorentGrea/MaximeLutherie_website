@@ -8,7 +8,7 @@ export default function AteliersPage() {
 
   return (
     <>
-        <section className="w-full py-4 md:py-6 lg:py-8 px-4 md:px-6">
+        <section className="w-full py-4 md:py-6 lg:py-8 px-4 md:px-6 animate-slide-bottom">
             <Card className='container grid items-center sm:grid-cols-2 sm:gap-10 overflow-hidden bg-brandy-punch-200'>
               <div className="relative w-full aspect-square">
                 <div className="absolute -right-[50%] sm:-right-[5%] -top-[110%] sm:-top-[60%] rounded-full w-[200%] aspect-square overflow-hidden">
@@ -31,7 +31,7 @@ export default function AteliersPage() {
                 </p>
                 <div className="flex flex-col gap-2 min-[400px]:flex-row">
                     <Link
-                        className="inline-flex h-10 items-center justify-center rounded-md border border-gray-200 bg-white px-8 text-sm font-medium shadow-sm transition-colors hover:bg-gray-100 hover:text-gray-900 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50 dark:border-gray-800 dark:bg-gray-950 dark:hover:bg-gray-800 dark:hover:text-gray-50 dark:focus-visible:ring-gray-300"
+                        className="inline-flex h-10 items-center justify-center rounded-md bg-brandy-punch-500 text-brandy-punch-50 px-8 text-sm font-medium shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50"
                         href="https://wecandoo.fr/atelier/lyon-maxime-cigarbox"
                         target="_blank"
                     >
@@ -41,8 +41,8 @@ export default function AteliersPage() {
               </div>
             </Card>
         </section>
-        <section className="w-full py-4 md:py-6 lg:py-8 px-4 md:px-6">
-            <Card className='container p-0 grid items-center sm:grid-cols-2 sm:gap-10 overflow-hidden bg-brandy-punch-950'>
+        <section className="w-full py-4 md:py-6 lg:py-8 px-4 md:px-6 animate-slide-bottom-d1">
+            <Card className='container p-0 grid items-center sm:grid-cols-2 sm:gap-10 overflow-hidden bg-brandy-punch-900'>
               <div className="w-full sm:order-last sm:pr-6 lg:p-0">
                     <Map />
               </div>
@@ -72,36 +72,36 @@ export default function AteliersPage() {
               </div>
             </Card>
         </section>
-        <section className="w-full py-4 md:py-6 lg:py-8 px-4 md:px-6">
+        <section className="w-full py-4 md:py-6 lg:py-8 px-4 md:px-6 animate-slide-bottom-d2">
             <Card className='container grid items-center lg:grid-cols-2 lg:gap-10 overflow-hidden bg-brandy-punch-200'><div className="space-y-4">
-                    <div className="grid grid-cols-2 gap-4 pt-6 lg-pt-0 lg:pl-6">
+                    <div className="grid grid-cols-2 gap-4 pt-6 lg:pt-0">
                         <Image
                             alt="Guitare en boîte de cigares 1"
                             className="w-full mx-auto rounded-xl object-cover object-center"
-                            height="275"
+                            width="1500"
+                            height="1500"
                             src="/bag/bag2.webp"
-                            width="275"
                         />
                         <Image
                             alt="Guitare en boîte de cigares 2"
                             className="w-full mx-auto rounded-xl object-cover object-center"
-                            height="275"
+                            width="1500"
+                            height="1500"
                             src="/bag/bag3.webp"
-                            width="275"
                         />
                         <Image
                             alt="Guitare en boîte de cigares 3"
                             className="w-full mx-auto rounded-xl object-cover object-center"
-                            height="275"
+                            width="1500"
+                            height="1500"
                             src="/bag/bag4.webp"
-                            width="275"
                         />
                         <Image
                             alt="Guitare en boîte de cigares 4"
                             className="w-full mx-auto rounded-xl object-cover object-center"
-                            height="275"
+                            width="1500"
+                            height="1500"
                             src="/bag/bag5.webp"
-                            width="275"
                         />
                     </div>
                 </div>

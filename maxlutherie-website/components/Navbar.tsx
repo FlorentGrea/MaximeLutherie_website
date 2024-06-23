@@ -40,7 +40,7 @@ export default function Nav() {
       <div className="lg:hidden">
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
-            <Button className="rounded-full border-none" size="icon" variant="outline">
+            <Button className="rounded-full border-none bg-brandy-punch-50" size="icon" variant="outline">
               <Icons.MenuIcon className="h-6 w-6" />
               <span className="sr-only">Toggle navigation menu</span>
             </Button>

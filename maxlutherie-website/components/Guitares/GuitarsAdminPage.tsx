@@ -44,56 +44,44 @@ export default function GuitarsAdminPage({ guitarList }: any) {
                     return (
                         <div key={guitar.id} className="relative">
                             <Link key={guitar.id} href={`/Guitares/${guitar.id}`}>
-                                <Card>
+                                <Card className="relative overflow-hidden h-96">
                                   <Image
                                     alt={guitar.Title}
-                                    className="rounded-t-lg object-cover w-full"
+                                    className="absolute w-full h-full rounded-t-lg object-cover aspect-[4/3] z-0"
                                     height={300}
-                                    src={guitar.Description.Image ? imageUrl : "/placeholder.svg"}
-                                    style={{
-                                      aspectRatio: "400/300",
-                                      objectFit: "cover",
-                                    }}
                                     width={400}
+                                    src={guitar.Description.Image ? imageUrl : "/placeholder.svg"}
                                   />
-                                  <CardContent>
-                                    <h3 className="text-xl font-bold text-gray-900">{guitar.Title}</h3>
-                                    <p className="mt-2 text-gray-700">
-                                      Fabriqué avec précision et attention aux détails, cette guitare offre un son riche et résonnant.
-                                    </p>
+                                  <div className="absolute h-full w-full bg-gradient-to-t from-brandy-punch-950/50 to-brandy-punch-800/0 z-10"/>
+                                  <CardContent className="absolute bottom-0 z-20">
+                                    <h3 className="text-2xl font-bold text-brandy-punch-50">{guitar.Title}</h3>
                                   </CardContent>
                                 </Card>
                             </Link>
-                            <Button variant={'destructive'} onClick={() => {setId(guitar.id); setPopupButton(1)}} className='absolute top-4 left-0 right-0 m-auto w-fit'>Supprimer</Button>
+                            <Button variant={'destructive'} onClick={() => {setId(guitar.id); setPopupButton(1)}} className='absolute top-4 left-0 right-0 m-auto w-fit z-20'>Supprimer</Button>
                         </div>
             )})}
                 <button onClick={newGuitar}>
-                    <Card>
+                    <Card className="relative overflow-hidden h-96">
                       <Image
                         alt='Nouvelle Guitare'
-                        className="rounded-t-lg object-cover w-full"
+                        className="absolute w-full h-full rounded-t-lg object-cover aspect-[4/3] z-0"
                         height={300}
-                        src='/placeholder.svg'
-                        style={{
-                          aspectRatio: "400/300",
-                          objectFit: "cover",
-                        }}
                         width={400}
+                        src='/placeholder.svg'
                       />
-                      <CardContent>
-                        <h3 className="text-xl font-bold text-gray-900">Ajouter un instrument</h3>
-                        <p className="mt-2 text-gray-700">
-                          Cliquez pour créer un nouvel instrument a présenter
-                        </p>
+                      <div className="absolute h-full w-full bg-gradient-to-t from-brandy-punch-950/50 to-brandy-punch-800/0 z-10"/>
+                      <CardContent className="absolute bottom-0 z-20">
+                        <h3 className="text-2xl font-bold text-brandy-punch-50">Ajouter un instrument</h3>
                       </CardContent>
                     </Card>
                 </button>
                 { popupButton ? 
-                    <div className='fixed flex flex-col top-0 left-0 m-auto w-full h-full justify-center items-center text-white bg-black/60'>
+                    <div className='fixed flex flex-col top-0 left-0 m-auto w-full h-full justify-center items-center text-white bg-black/70 z-30'>
                         <h1>Êtes-vous sur?</h1>
                         <div className='flex flex-row'>
                             <Button variant={'destructive'} onClick={delGuitar} className='m-4'>Supprimer</Button>
-                            <Button onClick={() => setPopupButton(0)} className='m-4'>Annuler</Button>
+                            <Button onClick={() => setPopupButton(0)} className='m-4 bg-brandy-punch-500 text-brandy-punch-50'>Annuler</Button>
                         </div>
                     </div>
                 : <></>}

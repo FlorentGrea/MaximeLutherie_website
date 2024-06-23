@@ -10,9 +10,12 @@ export default async function HomePage() {
   const session = await getSession()
   const user = session?.user
 
+  guitarList.sort((a,b) => a.order - b.order)
+  guitarList.reverse()
+
   return (
     <main>
-      <section className="w-full py-4 md:py-6 lg:py-8">
+      <section className="w-full py-4 md:py-6 lg:py-8 animate-slide-bottom">
         <div className="container mx-auto px-4 md:px-6 lg:px-8">
           <Card className='grid grid-cols-1 sm:grid-cols-2 overflow-hidden bg-brandy-punch-200'>
             <div className="relative w-full aspect-square sm:order-last">
@@ -38,18 +41,18 @@ export default async function HomePage() {
           </Card>
         </div>
       </section>
-      <section className="w-full py-4 md:py-6 lg:py-8">
+      <section className="w-full py-4 md:py-6 lg:py-8 animate-slide-bottom">
         <div className="container mx-auto px-4 md:px-6 lg:px-8">
           <h2 className="mb-8 text-center text-3xl font-bold text-brandy-punch-950 md:text-4xl lg:text-5xl">
             Nos modèles de guitares
           </h2>
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            { guitarList.map((guitar) => {
+            { guitarList.map((guitar, index: number) => {
               const imageUrl = process.env.DB_ADDR + 'api/files/' + guitar.collectionId + '/' + guitar.id + '/' + guitar.Description.Image
 
               return (
                 <Link key={guitar.id} href={`/Guitares/${guitar.id}`}>
-                  <Card className="relative overflow-hidden h-96">
+                  <Card className={`relative overflow-hidden h-96 animate-slide-bottom-d2`}>
                     <Image
                       alt={guitar.Title}
                       className="absolute w-full h-full rounded-t-lg object-cover aspect-[4/3] z-0"
@@ -57,7 +60,7 @@ export default async function HomePage() {
                       width={400}
                       src={guitar.Description.Image ? imageUrl : "/placeholder.svg"}
                     />
-                    <div className="absolute h-full w-full bg-gradient-to-t from-brandy-punch-950/70 to-brandy-punch-800/0 z-10"/>
+                    <div className="absolute h-full w-full bg-gradient-to-t from-brandy-punch-950/50 to-brandy-punch-800/0 z-10"/>
                     <CardContent className="absolute bottom-0 z-20">
                       <h3 className="text-2xl font-bold text-brandy-punch-50">{guitar.Title}</h3>
                     </CardContent>
@@ -67,7 +70,7 @@ export default async function HomePage() {
           </div>
         </div>
       </section>
-      <section className="w-full py-4 md:py-6 lg:py-8">
+      <section className="w-full py-4 md:py-6 lg:py-8 animate-slide-bottom">
         <div className="container mx-auto px-4 md:px-6 lg:px-8">
           <Card className='grid grid-cols-1 sm:grid-cols-2 overflow-hidden bg-brandy-punch-200'>
             <div className="relative w-full aspect-square">

@@ -11,7 +11,7 @@ export default async function ContactPage({ searchParams }: any) {
   const guitarList = await pb.collection('Guitars').getFullList({ cache: 'no-store' })
 
   return (
-    <section className="w-full py-12 md:py-16 lg:py-20">
+    <section className="w-full py-12 md:py-16 lg:py-20 animate-slide-bottom">
       <Card className='container py-6 mx-auto px-4 md:px-6 lg:px-8 max-w-md space-y-6 bg-brandy-punch-200 text-brandy-punch-950'>
         <div className="space-y-2 text-center">
           <h1 className="text-3xl font-bold">Contactez-nous</h1>

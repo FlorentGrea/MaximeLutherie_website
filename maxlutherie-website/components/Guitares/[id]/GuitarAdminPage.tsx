@@ -96,7 +96,7 @@ export default function GuitarAdminPage({ guitar }: any) {
     )}
 
     return (
-        <section className='w-full py-12 md:py-16 lg:py-20'>
+        <section className='w-full py-4 md:py-6 lg:py-8'>
             <div className="container mx-auto px-4 md:px-6 lg:px-8 flex flex-col">
                 <MainPartAdmin newGuitar={newGuitar} setNewGuitar={setNewGuitar} />
                 { newGuitar.Description.Paragraphs.map((paragraph: any, index: number) => {
@@ -104,10 +104,10 @@ export default function GuitarAdminPage({ guitar }: any) {
                         return (
                             <ParagraphAdmin key={index} newGuitar={newGuitar} setNewGuitar={setNewGuitar} parToDel={parToDel} setParToDel={setParToDel} paragraph={paragraph} index={index} />
                 )})}
-                <Button onClick={addParagraph} className='w-fit m-auto mb-4'>Ajouter un Paragraphe</Button>
+                <Button onClick={addParagraph} className='w-fit m-auto mb-4 bg-brandy-punch-500 text-brandy-punch-50'>Ajouter un Paragraphe</Button>
                 { changeButton &&
                     <div className='sticky flex flex-row bottom-5 w-full justify-center align-middle animate-slide-bottom-d1'>
-                        <Button onClick={handleSubmit} className='mx-5'>Sauvegarder</Button>
+                        <Button onClick={handleSubmit} className='mx-5 bg-brandy-punch-500 text-brandy-punch-50'>Sauvegarder</Button>
                         <Button variant={'outline'} onClick={() => {setIsLoading(true); window.location.reload()}} className='mx-5'>Reinitialiser</Button>
                     </div>
                 }

@@ -21,7 +21,7 @@ export default async function PhotosPage() {
           const imageUrl = process.env.DB_ADDR + 'api/files/' + record.collectionId + '/' + record.id + '/' + photo
           
           return (
-            <Card key={index} className="mb-2 overflow-hidden">
+            <Card key={index} className={`mb-2 overflow-hidden animate-slide-bottom-d${index % 6 + 1}`}>
               <Image
                 alt={photo}
                 className="rounded-t-lg object-cover w-full"

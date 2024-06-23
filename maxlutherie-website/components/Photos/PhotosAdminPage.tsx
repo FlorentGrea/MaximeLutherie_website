@@ -75,7 +75,7 @@ export default function PhotosAdminPage({ record }: any) {
             <form action={addPhotos} className="container flex flex-col w-full mx-auto max-w-sm items-center gap-1.5 mb-10 px-4 md:px-6 lg:px-8">
                 <Label htmlFor="picture" className="text-md mx-auto">Ajoutez des photos</Label>
                 <Input id="picture" type="file" name="Images" accept="images/*" required multiple/>
-                <Button type="submit" className="w-fit self-end mx-auto">Sauvegarder</Button>
+                <Button type="submit" className="w-fit self-end mx-auto bg-brandy-punch-500 text-brandy-punch-50">Sauvegarder</Button>
             </form>
             <div className='container mx-auto px-4 md:px-6 lg:px-8 columns-1 md:columns-2 lg:columns-3 break-inside-auto gap-2 w-full'>
                 <DndContext id={record.id} collisionDetection={closestCenter} onDragEnd={onDragEnd} sensors={sensors}>
@@ -90,7 +90,7 @@ export default function PhotosAdminPage({ record }: any) {
             </div>
             { changeButton &&
                 <div className='sticky flex flex-row bottom-5 w-full justify-center align-middle animate-slide-bottom-d1'>
-                    <Button onClick={() => handleSubmit(record)} className='mx-5'>Sauvegarder</Button>
+                    <Button onClick={() => handleSubmit(record)} className='mx-5 bg-brandy-punch-500 text-brandy-punch-50'>Sauvegarder</Button>
                     <Button variant={'outline'} onClick={() => {setLoading(true); window.location.reload()}} className='mx-5'>Reinitialiser</Button>
                 </div>
             }

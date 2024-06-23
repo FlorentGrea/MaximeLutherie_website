@@ -33,7 +33,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="en">
       <UserProvider>
-        <body className={crimson_text.variable + ' ' + eczar.variable + " flex flex-col min-h-[100vh]"}>
+        <body className={crimson_text.variable + ' ' + eczar.variable + " flex flex-col min-h-[100vh] bg-brandy-punch-50"}>
           <header className="w-full md:pt-4 md:px-6 lg:pt-6 lg:px-8">
             <div className="relative container w-full flex items-center justify-end mt-10 px-2">
               <Link className="absolute left-2 -top-6 md:-top-12 lg:-top-14 flex items-center w-44 sm:w-52 md:w-80" href="/">

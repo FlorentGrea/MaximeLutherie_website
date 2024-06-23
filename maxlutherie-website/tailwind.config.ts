@@ -80,10 +80,27 @@ const config = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
+        "slide-bottom": {
+            "0%": {
+                transform: "translateY(15%)",
+                opacity: "0"
+            },
+            to: {
+                transform: "translateY(0%)",
+                opacity: "1"
+            }
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "slide-bottom": "slide-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both",
+        "slide-bottom-d1": "slide-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.2s both",
+        "slide-bottom-d2": "slide-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.3s both",
+        "slide-bottom-d3": "slide-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.4s both",
+        "slide-bottom-d4": "slide-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s both",
+        "slide-bottom-d5": "slide-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.6s both",
+        "slide-bottom-d6": "slide-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.7s both",
       },
     },
   },

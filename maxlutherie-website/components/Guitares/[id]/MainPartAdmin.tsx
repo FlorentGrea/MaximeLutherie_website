@@ -33,7 +33,7 @@ export default function MainPartAdmin({ newGuitar, setNewGuitar }: any) {
     }
 
     return (
-        <div className="mt-8 mb-5">
+        <div className="mb-5">
             <Card className='relative h-96 overflow-hidden'>
                 <Image
                     src={file ? file : '/placeholder.svg'}
@@ -46,6 +46,7 @@ export default function MainPartAdmin({ newGuitar, setNewGuitar }: any) {
                     <input type="file" onChange={getFile} accept='image/*' className='hidden' />
                     <PlusIcon className='filter-white' />
                 </label>
+                <div className="absolute h-full w-full top-0 bg-gradient-to-t from-brandy-punch-950/50 to-brandy-punch-800/0"/>
                 <CardContent className='absolute flex items-center bottom-0 w-full h-[20%] pl-4 bg-gradient-to-t from-black/60'>
                     <Input type='text' placeholder='Titre' value={newGuitar.Description.Title} onChange={(event) => changeText(event)} className='bg-transparent text-white'/>
                 </CardContent>
