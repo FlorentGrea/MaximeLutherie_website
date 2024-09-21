@@ -25,7 +25,7 @@ export default function AteliersPage() {
                 <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
                     Découvrez l&apos;art des guitares en boîtes de cigares
                 </h1>
-                <p className="text-gray-500 md:text-xl/relaxed sm:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
+                <p className="text-brandy-punch-600 md:text-xl/relaxed sm:text-base/relaxed xl:text-xl/relaxed dark:text-brandy-punch-600">
                     Rejoignez notre atelier pratique et apprenez à construire votre propre guitare en boîte de cigares unique.
                     Libérez votre créativité et faites un instrument unique.
                 </p>

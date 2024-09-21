@@ -3,15 +3,21 @@ import { getSession } from "@auth0/nextjs-auth0";
 import PocketBase from 'pocketbase';
 import Image from "next/image"
 import Link from "next/link"
+import ArticlesAdmin from "@/components/ArticlesAdmin";
+import HomePageAdmin from "@/components/MainPageAdmin";
 
 export default async function HomePage() {
   const pb = new PocketBase(process.env.DB_ADDR)
   const guitarList = await pb.collection('Guitars').getFullList({ cache: 'no-store' })
+  const Article = await pb.collection('Main_Page').getOne('wovyggtylon449j', { cache: 'no-store' })
   const session = await getSession()
   const user = session?.user
 
   guitarList.sort((a,b) => a.order - b.order)
   guitarList.reverse()
+
+  if (user)
+    return <HomePageAdmin Article={Article} guitarList={guitarList} />
 
   return (
     <main>
@@ -19,23 +25,22 @@ export default async function HomePage() {
         <div className="container mx-auto px-4 md:px-6 lg:px-8">
           <Card className='grid grid-cols-1 sm:grid-cols-2 overflow-hidden bg-brandy-punch-200'>
             <div className="relative w-full aspect-square sm:order-last">
-              <div className="absolute -right-[16%] -top-[16%] rounded-full w-[110%] aspect-square overflow-hidden">
+              <div className="absolute -right-[100%] sm:-right-[0%] sm:left-0 -top-[200%] sm:-top-[100%] w-[300%] rounded-full aspect-square overflow-hidden">
                 <Image
                   alt="Guitare faite à la main"
-                  className="absolute top-[14%] right-[14%] rounded-lg object-cover aspect-square sm:order-last"
+                  className="absolute -bottom-[1%] sm:bottom-[32.5%] left-[32.5%] sm:-left-[1%] w-[35%] rounded-lg object-cover aspect-square sm:order-last"
                   width={6000}
                   height={6000}
-                  src="/a1.jpg"
+                  src={Article.Images_a1 ? process.env.NEXT_PUBLIC_DB_ADDR + 'api/files/' + Article.collectionId + '/' + Article.id + '/' + Article.Images_a1 : '/placeholder.svg'}
                 />
               </div>
             </div>
             <div className='flex flex-col self-center w-full p-6 space-y-4'>
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-brandy-punch-950">
-                Découvrez l&apos;art de l&apos;artisanat
+                {Article.Title_a1}
               </h1>
               <p className="text-lg text-brandy-punch-600 md:text-xl">
-                Découvrez la beauté et la qualité de nos guitares faites à la main, construites avec passion et
-                précision.
+                {Article.Subtitle_a1}
               </p>
             </div>
           </Card>
@@ -74,27 +79,20 @@ export default async function HomePage() {
         <div className="container mx-auto px-4 md:px-6 lg:px-8">
           <Card className='grid grid-cols-1 sm:grid-cols-2 overflow-hidden bg-brandy-punch-200'>
             <div className="relative w-full aspect-square">
-              <div className="absolute -top-[40%] sm:-top-[20%] -left-[20%] sm:-left-[40%] rounded-full w-[140%] aspect-square overflow-hidden">
+              <div className="absolute -right-[100%] sm:right-0 -top-[200%] sm:-top-[100%] w-[300%] rounded-full aspect-square overflow-hidden">
                 <Image
                   alt="Atelier de guitares"
-                  className="absolute top-[20%] sm:top-[10%] sm:left-[15%] rounded-lg object-cover aspect-square"
+                  className="absolute -bottom-[1%] sm:bottom-[32.5%] right-[32.5%] sm:-right-[1%] w-[35%] rounded-lg object-cover aspect-square"
                   width={6000}
                   height={6000}
-                  src="/bag/bag9.webp"
+                  src={Article.Images_a2 ? process.env.NEXT_PUBLIC_DB_ADDR + 'api/files/' + Article.collectionId + '/' + Article.id + '/' + Article.Images_a2 : '/placeholder.svg'}
                 />
               </div>
             </div>
             <div className='flex flex-col self-center w-full p-6 space-y-4'>
-              <h2 className="text-3xl font-bold text-brandy-punch-950 md:text-4xl lg:text-5xl">À propos de nous</h2>
+              <h2 className="text-3xl font-bold text-brandy-punch-950 md:text-4xl lg:text-5xl">{Article.Title_a2}</h2>
               <p className="text-brandy-punch-600">
-                Chez Max Lutherie, nous sommes passionnés par l&apos;art de la fabrication de guitares. Notre équipe de
-                luthiers qualifiés fabrique chaque instrument avec une attention méticuleuse aux détails, en utilisant
-                uniquement les meilleurs matériaux et des techniques ancestrales.
-              </p>
-              <p className="text-brandy-punch-600">
-                Notre engagement envers la qualité et l&apos;artisanat se reflète dans chaque guitare que nous créons. Nous
-                sommes fiers de notre travail et nous nous efforçons de procurer une expérience de jeu exceptionnelle
-                à nos clients.
+                {Article.Subtitle_a2}
               </p>
             </div>
             <div className="flex flex-col justify-center space-y-4">
