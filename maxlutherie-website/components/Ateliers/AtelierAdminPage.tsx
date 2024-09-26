@@ -231,7 +231,7 @@ export default function AteliersAdminPage( { Article }: any ) {
                     <div className="rounded-md border border-gray-200 p-4 shadow-sm dark:border-gray-800">
                         <blockquote className="space-y-2">
                             <p className="text-brandy-punch-500">
-                                <Textarea placeholder='Texte témoignage' defaultValue={liveArticle.tem1_a3} onChange={(event) => changeText(event, 'tem1_a3')} className={`bg-transparent border-none`} />
+                                <Textarea placeholder='Texte témoignage' defaultValue={liveArticle.tem1_a3} onChange={(event) => changeText(event, 'tem1_a3')} className={`h-32 bg-transparent border-none`} />
                             </p>
                             <cite className="not-italic font-medium text-brandy-punch-950">                               
                                 <Input placeholder='Texte témoignage' defaultValue={liveArticle.nam1_a3} onChange={(event) => changeText(event, 'nam1_a3')} className={`bg-transparent border-none h-2`} />
@@ -241,7 +241,7 @@ export default function AteliersAdminPage( { Article }: any ) {
                     <div className="rounded-md border border-gray-200 p-4 shadow-sm dark:border-gray-800">
                         <blockquote className="space-y-2">
                             <p className="text-brandy-punch-500 mb-2">
-                                <Textarea placeholder='Texte témoignage' defaultValue={liveArticle.tem2_a3} onChange={(event) => changeText(event, 'tem2_a3')} className={`bg-transparent border-none h-4`} />
+                                <Textarea placeholder='Texte témoignage' defaultValue={liveArticle.tem2_a3} onChange={(event) => changeText(event, 'tem2_a3')} className={`h-32 bg-transparent border-none`} />
                             </p>
                             <cite className="flex flex-row not-italic font-medium text-brandy-punch-950 h-4">
                                 <Input placeholder='Nom du témoin' defaultValue={liveArticle.nam2_a3} onChange={(event) => changeText(event, 'nam2_a3')} className={`bg-transparent border-none h-1`} />
