@@ -6,32 +6,20 @@ import PocketBase from 'pocketbase';
 import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { PlusIcon } from '../ui/icons';
 
 export default function GuitarsAdminPage({ guitarList }: any) {
     const pb = new PocketBase(process.env.NEXT_PUBLIC_DB_ADDR);
     const [ id, setId ] = useState('')
     const [ popupButton, setPopupButton ] = useState(0)
-    const maxOrder = guitarList.length
     
     async function newGuitar() {
-        const data = {
-            'Title': 'nouvelle guitare',
-            'Order': maxOrder,
-            'Description': {
-                "Title": "nouvelle guitare",
-                "Image": "",
-                "Paragraphs": []
-            }
-        }
-        const record = await pb.collection('Guitars').create(data);
         const url = window.location
-        window.location.href = url + '/' + record.id
+        window.location.href = url + '/' + 'new_instrument'
     }
 
     async function delGuitar() {
         if (id)
-            await pb.collection('Guitars').delete(id)
+            await pb.collection('Guitar_List').delete(id)
         location.reload()
     }
 
@@ -39,22 +27,22 @@ export default function GuitarsAdminPage({ guitarList }: any) {
         <section className="w-full py-12 md:py-16 lg:py-20">
             <div className="container mx-auto px-4 md:px-6 lg:px-8 w-full grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
                 { guitarList.map((guitar: any) => {
-                    const imageUrl = process.env.NEXT_PUBLIC_DB_ADDR + 'api/files/' + guitar.collectionId + '/' + guitar.id + '/' + guitar.Description.Image
+                    const imageUrl = process.env.NEXT_PUBLIC_DB_ADDR + 'api/files/' + guitar.collectionId + '/' + guitar.id + '/' + guitar.img_main
 
                     return (
                         <div key={guitar.id} className="relative">
                             <Link key={guitar.id} href={`/Guitares/${guitar.id}`}>
                                 <Card className="relative overflow-hidden h-96">
                                   <Image
-                                    alt={guitar.Title}
+                                    alt={guitar.title_main}
                                     className="absolute w-full h-full rounded-t-lg object-cover aspect-[4/3] z-0"
                                     height={300}
                                     width={400}
-                                    src={guitar.Description.Image ? imageUrl : "/placeholder.svg"}
+                                    src={guitar.img_main ? imageUrl : "/placeholder.svg"}
                                   />
                                   <div className="absolute h-full w-full bg-gradient-to-t from-brandy-punch-950/50 to-brandy-punch-800/0 z-10"/>
                                   <CardContent className="absolute bottom-0 z-20">
-                                    <h3 className="text-2xl font-bold text-brandy-punch-50">{guitar.Title}</h3>
+                                    <h3 className="text-2xl font-bold text-brandy-punch-50">{guitar.title_main}</h3>
                                   </CardContent>
                                 </Card>
                             </Link>

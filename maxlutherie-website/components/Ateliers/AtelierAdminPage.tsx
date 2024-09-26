@@ -54,31 +54,7 @@ export default function AteliersAdminPage( { Article }: any ) {
     function changeText(event: any, type: string) {
         event.preventDefault()
         const tmpArticle = {...liveArticle}
-        if (type == 'title_a1') {
-            tmpArticle.title_a1 = event.target.value
-        } else if (type == 'des_a1') {
-            tmpArticle.des_a1 = event.target.value
-        } else if (type == 'link_a1') {
-            tmpArticle.link_a1 = event.target.value
-        } else if (type == 'title_a2') {
-            tmpArticle.title_a2 = event.target.value
-        } else if (type == 'des_a2') {
-            tmpArticle.des_a2 = event.target.value
-        } else if (type == 'adress_a2') {
-            tmpArticle.adress_a2 = event.target.value
-        } else if (type == 'dates_a2') {
-            tmpArticle.dates_a2 = event.target.value
-        } else if (type == 'title_a3') {
-            tmpArticle.title_a3 = event.target.value
-        } else if (type == 'tem1_a3') {
-            tmpArticle.tem1_a3 = event.target.value
-        } else if (type == 'nam1_a3') {
-            tmpArticle.nam1_a3 = event.target.value
-        } else if (type == 'tem2_a3') {
-            tmpArticle.tem2_a3 = event.target.value
-        } else if (type == 'nam2_a3') {
-            tmpArticle.nam2_a3 = event.target.value
-        }
+        tmpArticle[type] = event.target.value
         setLiveArticle(tmpArticle)
     }
 
