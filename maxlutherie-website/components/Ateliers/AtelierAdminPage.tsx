@@ -138,8 +138,8 @@ export default function AteliersAdminPage( { Article }: any ) {
                 </div>
               </div>
               <div className='flex flex-col self-center w-full pb-6 sm:pt-6 space-y-4'>             
-                <Textarea placeholder='Titre' defaultValue={liveArticle.title_a1} onChange={(event) => changeText(event, 'title_a1')} className={`bg-transparent text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-brandy-punch-950 h-40`} />
-                <Textarea placeholder='Description' defaultValue={liveArticle.des_a1} onChange={(event) => changeText(event, 'des_a1')} className={`bg-transparent w-full text-brandy-punch-600 md:text-xl/relaxed sm:text-base/relaxed xl:text-xl/relaxed dark:text-brandy-punch-600 h-40`} />
+                <Textarea placeholder='Titre' defaultValue={liveArticle.title_a1} onChange={(event) => changeText(event, 'title_a1')} className={`h-32 bg-transparent text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-brandy-punch-950`} />
+                <Textarea placeholder='Description' defaultValue={liveArticle.des_a1} onChange={(event) => changeText(event, 'des_a1')} className={`h-44 bg-transparent w-full text-brandy-punch-600 md:text-xl/relaxed sm:text-base/relaxed xl:text-xl/relaxed dark:text-brandy-punch-600`} />
                 <div className="flex flex-col gap-2 min-[400px]:flex-row">
                     <Input type="text" placeholder="lien" defaultValue={liveArticle.link_a1} onChange={(event) => changeText(event, 'link_a1')} className="inline-flex h-10 items-center justify-center rounded-md bg-brandy-punch-500 text-brandy-punch-50 px-8 text-sm font-medium shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50"></Input>
                 </div>
@@ -153,16 +153,16 @@ export default function AteliersAdminPage( { Article }: any ) {
               </div>
               <div className='flex flex-col self-center w-full p-6 space-y-4'>
                 <div className="space-y-4">                
-                    <Textarea placeholder='Titre' defaultValue={liveArticle.title_a2} onChange={(event) => changeText(event, 'title_a2')} className={`bg-transparent text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-brandy-punch-50 h-40`} />
-                    <Textarea placeholder='Description' defaultValue={liveArticle.des_a2} onChange={(event) => changeText(event, 'des_a2')} className={`bg-transparent text-brandy-punch-200 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed h-40`} />
+                    <Textarea placeholder='Titre' defaultValue={liveArticle.title_a2} onChange={(event) => changeText(event, 'title_a2')} className={`bg-transparent text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-brandy-punch-50`} />
+                    <Textarea placeholder='Description' defaultValue={liveArticle.des_a2} onChange={(event) => changeText(event, 'des_a2')} className={`h-36 bg-transparent text-brandy-punch-200 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed`} />
                     <div className="grid gap-4 text-brandy-punch-50">
                         <div className="flex items-center gap-2">
                             <icons.LocalisationIcon className="h-6 w-6 text-brandy-punch-50" />
-                            <Textarea placeholder='Description' defaultValue={liveArticle.adress_a2} onChange={(event) => changeText(event, 'adress_a2')} className={`bg-transparent`} />
+                            <Input placeholder='Description' defaultValue={liveArticle.adress_a2} onChange={(event) => changeText(event, 'adress_a2')} className={`bg-transparent`} />
                         </div>
                         <div className="flex items-center gap-2">
                             <icons.CalendarIcon className="h-6 w-6 text-brandy-punch-50" />
-                            <Textarea placeholder='Description' defaultValue={liveArticle.dates_a2} onChange={(event) => changeText(event, 'dates_a2')} className={`bg-transparent`} />
+                            <Input placeholder='Description' defaultValue={liveArticle.dates_a2} onChange={(event) => changeText(event, 'dates_a2')} className={`bg-transparent`} />
                         </div>
                     </div>
                 </div>
@@ -231,20 +231,20 @@ export default function AteliersAdminPage( { Article }: any ) {
                     <div className="rounded-md border border-gray-200 p-4 shadow-sm dark:border-gray-800">
                         <blockquote className="space-y-2">
                             <p className="text-brandy-punch-500">
-                                <Textarea placeholder='Texte témoignage' defaultValue={liveArticle.tem1_a3} onChange={(event) => changeText(event, 'tem1_a3')} className={`bg-transparent border-none h-40`} />
+                                <Textarea placeholder='Texte témoignage' defaultValue={liveArticle.tem1_a3} onChange={(event) => changeText(event, 'tem1_a3')} className={`bg-transparent border-none`} />
                             </p>
                             <cite className="not-italic font-medium text-brandy-punch-950">                               
-                                <Textarea placeholder='Texte témoignage' defaultValue={liveArticle.nam1_a3} onChange={(event) => changeText(event, 'nam1_a3')} className={`bg-transparent border-none h-2`} />
+                                <Input placeholder='Texte témoignage' defaultValue={liveArticle.nam1_a3} onChange={(event) => changeText(event, 'nam1_a3')} className={`bg-transparent border-none h-2`} />
                             </cite>
                         </blockquote>
                     </div>
                     <div className="rounded-md border border-gray-200 p-4 shadow-sm dark:border-gray-800">
                         <blockquote className="space-y-2">
-                            <p className="text-brandy-punch-500">
-                                <Textarea placeholder='Texte témoignage' defaultValue={liveArticle.tem2_a3} onChange={(event) => changeText(event, 'tem2_a3')} className={`bg-transparent border-none h-40`} />
+                            <p className="text-brandy-punch-500 mb-2">
+                                <Textarea placeholder='Texte témoignage' defaultValue={liveArticle.tem2_a3} onChange={(event) => changeText(event, 'tem2_a3')} className={`bg-transparent border-none h-4`} />
                             </p>
-                            <cite className="not-italic font-medium text-brandy-punch-950">
-                                <Textarea placeholder='Texte témoignage' defaultValue={liveArticle.nam2_a3} onChange={(event) => changeText(event, 'nam2_a3')} className={`bg-transparent border-none h-2`} />
+                            <cite className="flex flex-row not-italic font-medium text-brandy-punch-950 h-4">
+                                <Input placeholder='Nom du témoin' defaultValue={liveArticle.nam2_a3} onChange={(event) => changeText(event, 'nam2_a3')} className={`bg-transparent border-none h-1`} />
                             </cite>
                         </blockquote>
                     </div>
