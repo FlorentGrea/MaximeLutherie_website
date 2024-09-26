@@ -3,7 +3,6 @@ import { getSession } from "@auth0/nextjs-auth0";
 import PocketBase from 'pocketbase';
 import Image from "next/image"
 import Link from "next/link"
-import ArticlesAdmin from "@/components/ArticlesAdmin";
 import HomePageAdmin from "@/components/MainPageAdmin";
 
 export default async function HomePage() {
@@ -49,7 +48,7 @@ export default async function HomePage() {
       <section className="w-full py-4 md:py-6 lg:py-8 animate-slide-bottom">
         <div className="container mx-auto px-4 md:px-6 lg:px-8">
           <h2 className="mb-8 text-center text-3xl font-bold text-brandy-punch-950 md:text-4xl lg:text-5xl">
-            Nos modèles de guitares
+            Les modèles de guitares
           </h2>
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
             { guitarList.map((guitar, index: number) => {

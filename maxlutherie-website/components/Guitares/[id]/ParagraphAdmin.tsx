@@ -59,9 +59,8 @@ export default function ParagraphAdmin({ newGuitar, setNewGuitar, parTodel, setP
     }
 
     return (
-        <div className='flex flex-col'>
-            <Button variant={'destructive'} onClick={deleteParagraphs} className='w-fit m-auto'>Supprimer le paragraphe</Button>
-            <Card key={index} className={`my-4 grid grid-cols-1 lg:grid-cols-2 overflow-hidden ${index % 2 ? 'bg-brandy-punch-900' : 'bg-brandy-punch-200'}`}>
+        <div className='flex flex-col mb-4'>
+            <Card key={index} className={`grid grid-cols-1 lg:grid-cols-2 overflow-hidden ${index % 2 ? 'bg-brandy-punch-900' : 'bg-brandy-punch-200'}`}>
                 <div className={`relative w-full aspect-square ${index % 2 && 'lg:order-last'}`}>
                     <div className={`absolute rounded-full aspect-square overflow-hidden w-[400%] 
                         ${index % 2 ?
@@ -97,6 +96,7 @@ export default function ParagraphAdmin({ newGuitar, setNewGuitar, parTodel, setP
                     <Textarea placeholder='Paragraphe' value={paragraph.Body} onChange={(event) => changeText(event, 'Body')} className={`bg-transparent h-60 flex-grow ${index % 2 ? 'text-brandy-punch-50' : 'text-brandy-punch-950'}`} />
                 </div>
             </Card>
+            <Button variant={'destructive'} onClick={deleteParagraphs} className='w-fit m-auto mt-4'>Supprimer le paragraphe</Button>
         </div>
     )
 }

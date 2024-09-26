@@ -14,7 +14,7 @@ export default function Map() {
         return <LoadingWheel />
 
     return (
-        <GoogleMap zoom={13} center={center} mapContainerClassName="mx-auto rounded-xl object-cover object-center w-full min-h-96">
+        <GoogleMap zoom={13} center={center} mapContainerClassName="mx-auto rounded-none object-cover object-center w-full min-h-96">
             <Marker position={{ lat: 45.75482091824271, lng: 4.938829118760671 }}/>
         </GoogleMap>
     )

@@ -69,7 +69,6 @@ export default function HomePageAdmin({Article, guitarList}: any) {
     }
 
     useEffect(() => {
-        console.log(newData.get('Images_a1'))
         if (defArticle != JSON.stringify(liveArticle) || defFile1 != file1 || defFile2 != file2)
             setChangeButton(true)
     }, [defArticle, liveArticle, file1, file2])
