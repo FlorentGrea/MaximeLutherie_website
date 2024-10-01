@@ -17,6 +17,9 @@ export default async function AteliersPage() {
     if (user)
         return <AteliersAdminPage Article={Article} />
 
+    if(!user)
+        console.log('no token')
+
     return (
         <>
             <section className="w-full py-4 md:py-6 lg:py-8 px-4 md:px-6 animate-slide-bottom">
