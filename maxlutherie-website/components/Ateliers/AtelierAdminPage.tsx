@@ -12,7 +12,6 @@ import { Textarea } from "../ui/textarea"
 import { Input } from "../ui/input"
 import { Button } from "../ui/button"
 
-//can modify
 
 export default function AteliersAdminPage( { Article }: any ) {
     const defArticle = JSON.stringify(Article)
@@ -30,7 +29,6 @@ export default function AteliersAdminPage( { Article }: any ) {
     const [ changeButton, setChangeButton ] = useState(false)
     const [isLoading, setIsLoading] = useState(false)
     const [ newData, setNewData ] = useState(new FormData)
-    console.log('bonsoir paris1')
 
     function getFile(event: any, nb: number) {
       if (event.target.files[0]) {

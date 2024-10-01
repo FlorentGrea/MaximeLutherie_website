@@ -52,7 +52,6 @@ export default function GuitarAdminPage({ guitar }: any) {
     })
     const defaultGuitar = JSON.stringify(guitar)
     const [newGuitar, setNewGuitar] = useState({...guitar})
-    console.log('bonsoir paris2')
     const [postGuitar, setPostGuitar] = useState(form)
 
     function getFile(event: any, type: string) {

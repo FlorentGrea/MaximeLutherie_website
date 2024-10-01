@@ -10,7 +10,6 @@ import Link from 'next/link';
 export default function GuitarsAdminPage({ guitarList }: any) {
     const pb = new PocketBase(process.env.NEXT_PUBLIC_DB_ADDR);
     const [ id, setId ] = useState('')
-    console.log('bonsoir paris3')
     const [ popupButton, setPopupButton ] = useState(0)
     
     async function newGuitar() {
