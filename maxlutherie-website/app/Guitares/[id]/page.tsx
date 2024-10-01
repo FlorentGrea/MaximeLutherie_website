@@ -40,7 +40,7 @@ export default async function GuitarCardPage({ params }: any) {
                     />
                     <div className="absolute h-full w-full top-0 bg-gradient-to-t from-brandy-punch-950/50 to-brandy-punch-800/0"/>
                     <CardContent className='absolute flex items-center bottom-0 w-full h-[20%] pl-4 bg-gradient-to-t from-black/80'>
-                        <h1 className="text-brandy-punch-50 text-xl">{guitar.title_main}</h1>
+                        <h1 className="text-brandy-punch-50 text-4xl">{guitar.title_main}</h1>
                     </CardContent>
                 </Card>
                 { guitar.img_a1 ? 
