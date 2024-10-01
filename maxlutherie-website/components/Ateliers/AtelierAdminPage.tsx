@@ -12,6 +12,8 @@ import { Textarea } from "../ui/textarea"
 import { Input } from "../ui/input"
 import { Button } from "../ui/button"
 
+//can modify
+
 export default function AteliersAdminPage( { Article }: any ) {
     const defArticle = JSON.stringify(Article)
     const defFile1 = Article.image_a1 ? process.env.NEXT_PUBLIC_DB_ADDR + 'api/files/' + Article.collectionId + '/' + Article.id + '/' + Article.image_a1 : ''
