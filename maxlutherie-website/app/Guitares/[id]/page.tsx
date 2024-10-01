@@ -30,7 +30,7 @@ export default async function GuitarCardPage({ params }: any) {
     return (
         <section className="w-full py-4 md:py-6 lg:py-8 animate-slide-bottom">
             <div className="container mx-auto px-4 md:px-6 lg:px-8 flex flex-col">
-                <Card className='relative h-96 overflow-hidden'>
+                <Card className='relative h-[80vh] overflow-hidden'>
                     <Image
                         src={guitar.img_main ? mainImg : '/placeholder.svg'}
                         width={1500}

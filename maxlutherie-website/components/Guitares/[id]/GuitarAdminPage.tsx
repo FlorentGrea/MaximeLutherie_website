@@ -112,7 +112,7 @@ export default function GuitarAdminPage({ guitar }: any) {
     return (
         <section className='w-full py-4 md:py-6 lg:py-8'>
             <div className="container mx-auto px-4 md:px-6 lg:px-8 flex flex-col">
-                <Card className='relative h-96 overflow-hidden mb-5'>
+                <Card className='relative h-[80vh] overflow-hidden mb-5'>
                     <Image
                         src={newGuitar.img_main ? newGuitar.img_main : '/placeholder.svg'}
                         width={1500}
