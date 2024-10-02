@@ -57,9 +57,9 @@ export default function Nav() {
             )})}
             { user && (
               <DropdownMenuItem>
-                <Link className="block w-full" href="/api/auth/logout">
+                <a className="block w-full" href="/api/auth/logout">
                   DÉCONNEXION
-                </Link>
+                </a>
               </DropdownMenuItem>
             )}
           </DropdownMenuContent>
