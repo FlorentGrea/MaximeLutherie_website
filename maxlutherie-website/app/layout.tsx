@@ -1,4 +1,4 @@
-import { UserProvider } from '@auth0/nextjs-auth0/client'
+import { UserProvider } from '@auth0/nextjs-auth0/client';
 import { GuitaresIcon } from '@/components/ui/icons'
 import { Crimson_Text } from 'next/font/google'
 import { Eczar } from 'next/font/google'
@@ -28,7 +28,7 @@ const eczar = Eczar({
 
 export const dynamic = "force-dynamic";
 
-export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
 
   return (
     <html lang="en">
