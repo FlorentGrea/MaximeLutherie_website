@@ -8,16 +8,16 @@ import * as Icons from './ui/icons';
 import Link from 'next/link'
 import "@/app/globals.css";
 import React from 'react';
+import { cookies } from "next/headers";
 
 //Navigation Bar.
 //The const pages define each pages.
 //Each link will displayed in dropdown menu, except if the screen have a width superior to 1280px, then they will be displayed as a line.
 //the last li is for logging out of admin mode
 
-export default function Nav() {
+export default function Nav({ logout, user }: any) {
   const pages = [ 'Guitares', 'Ateliers', 'Photos', 'Contact' ]
   const currentRoute = usePathname()
-  const { user } = useUser();
 
   return (
     <nav className="flex items-center space-x-1 sm:space-x-4 md:space-x-6 lg:space-x-8 text-brandy-punch-950">
@@ -31,11 +31,11 @@ export default function Nav() {
               </Link>
             </div>
         )})}
-        { user && (
-          <Link href="/api/auth/logout" className="block px-1 sm:px-2 md:px-3 items-center hover:text-brandy-punch-600 transition-colors">
-              DÉCONNEXION
-          </Link>
-        )}
+        { user ? (
+          <form className="block w-full" action={logout}>
+            <button type="submit" className="block px-1 sm:px-2 md:px-3 items-center hover:text-brandy-punch-600 transition-colors">DÉCONNEXION</button>
+          </form>
+        ) : <></>}
       </div>
       <div className="lg:hidden">
         <DropdownMenu>
@@ -57,9 +57,9 @@ export default function Nav() {
             )})}
             { user && (
               <DropdownMenuItem>
-                <a className="block w-full" href="/api/auth/logout">
-                  DÉCONNEXION
-                </a>
+                <form className="block w-full" action={logout}>
+                  <button type="submit">DÉCONNEXION</button>
+                </form>
               </DropdownMenuItem>
             )}
           </DropdownMenuContent>

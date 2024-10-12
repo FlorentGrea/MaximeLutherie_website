@@ -4,12 +4,13 @@ import { getSession } from "@auth0/nextjs-auth0";
 import PocketBase from 'pocketbase';
 import Image from 'next/image';
 import Link from 'next/link';
+import { cookies } from "next/headers";
 
 export default async function GuitaresPage() {
     const pb = new PocketBase(process.env.DB_ADDR);
     const guitarList = await pb.collection('Guitar_List').getFullList({ cache: 'no-store' })
-    const session = await getSession();
-    const user = session?.user;
+    const cookie = cookies().get('Admin')
+    const user = cookie?.value == 'true' ? 1 : 0
     
     guitarList.sort((a,b) => a.order - b.order)
     guitarList.reverse()

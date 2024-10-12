@@ -5,11 +5,12 @@ import { Card, CardContent } from "@/components/ui/card";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import GuitarAdminPage from "@/components/Guitares/[id]/GuitarAdminPage";
+import { cookies } from "next/headers";
 
 export default async function GuitarCardPage({ params }: any) {
     const pb = new PocketBase(process.env.DB_ADDR)
-    const session = await getSession();
-    const user = session?.user;
+    const cookie = cookies().get('Admin')
+    const user = cookie?.value == 'true' ? 1 : 0
     
     if (params.id == 'new_instrument' && user)
         return (<GuitarAdminPage guitar={null} />)

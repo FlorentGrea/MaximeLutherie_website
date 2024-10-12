@@ -3,13 +3,14 @@ import { getSession } from "@auth0/nextjs-auth0";
 import { Card } from "@/components/ui/card";
 import PocketBase from 'pocketbase';
 import Image from "next/image";
+import { cookies } from "next/headers";
 
 export default async function PhotosPage() {
   const pb = new PocketBase(process.env.DB_ADDR);
   const record = await pb.collection('Photos').getOne('eupapy42hgupvan', { cache: 'no-store' })
   const photos = record.Images
-  const session = await getSession();
-  const user = session?.user;
+  const cookie = cookies().get('Admin')
+  const user = cookie?.value == 'true' ? 1 : 0
 
   if (user)
     return <PhotosAdminPage record={JSON.stringify(record)} />

@@ -2,17 +2,17 @@ import AteliersAdminPage from "@/components/Ateliers/AtelierAdminPage"
 import Map from "@/components/Ateliers/GoogleMaps"
 import { Card } from "@/components/ui/card"
 import * as icons from "@/components/ui/icons"
-import { getSession } from "@auth0/nextjs-auth0"
 import PocketBase from 'pocketbase';
 import Image from "next/image"
 import Link from "next/link"
+import { cookies } from "next/headers"
 
 export default async function AteliersPage() {
 
     const pb = new PocketBase(process.env.DB_ADDR)
     const Article = await pb.collection('Atelier_Page').getOne('61ilm2khve5ikye', { cache: 'no-store' })
-    const session = await getSession()
-    const user = session?.user
+    const cookie = cookies().get('Admin')
+    const user = cookie?.value == 'true' ? 1 : 0
 
     if (user)
         return <AteliersAdminPage Article={Article} />

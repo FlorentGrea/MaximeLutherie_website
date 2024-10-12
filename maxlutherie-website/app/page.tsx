@@ -4,14 +4,15 @@ import PocketBase from 'pocketbase';
 import Image from "next/image"
 import Link from "next/link"
 import HomePageAdmin from "@/components/MainPageAdmin";
+import { cookies } from "next/headers";
 
 export default async function HomePage() {
   const pb = new PocketBase(process.env.DB_ADDR)
   const guitarList = await pb.collection('Guitar_List').getFullList({ cache: 'no-store' })
   const Article = await pb.collection('Main_Page').getOne('wovyggtylon449j', { cache: 'no-store' })
-  const session = await getSession()
-  const user = session?.user
-
+  const cookie = cookies().get('Admin')
+  const user = cookie?.value == 'true' ? 1 : 0
+  
   guitarList.sort((a,b) => a.order - b.order)
   guitarList.reverse()
 

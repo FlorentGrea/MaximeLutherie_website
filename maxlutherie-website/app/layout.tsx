@@ -7,6 +7,8 @@ import type { Metadata } from "next"
 import Image from "next/image"
 import Link from "next/link"
 import "./globals.css"
+import { cookies } from 'next/headers';
+import { redirect } from 'next/navigation';
 
 export const metadata: Metadata = {
   title: "Max Lutherie",
@@ -29,6 +31,16 @@ const eczar = Eczar({
 export const dynamic = "force-dynamic";
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
+  const cookie = cookies().get('Admin')
+  const user = cookie?.value == 'true' ? 1 : 0
+
+  async function logout () {
+    'use server'
+
+    console.log('ola')
+    cookies().delete('Admin')
+    redirect('/')
+  }
 
   return (
     <html lang="en">
@@ -45,7 +57,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   className='object-contain m-auto filter-brandy-punch'
                 />
               </Link>
-              <Nav />
+              <Nav logout={logout} user={user} />
             </div>
           </header>
           <main className='flex-grow'>
