@@ -74,7 +74,7 @@ export default function PhotosAdminPage({ record }: any) {
         <section className="w-full py-12 md:py-16 lg:py-20">
             <form action={addPhotos} className="container flex flex-col w-full mx-auto max-w-sm items-center gap-1.5 mb-10 px-4 md:px-6 lg:px-8">
                 <Label htmlFor="picture" className="text-md mx-auto">Ajoutez des photos</Label>
-                <Input id="picture" type="file" name="Images" accept="images/*" required multiple/>
+                <Input id="picture" type="file" name="Images" accept="image/*" required multiple/>
                 <Button type="submit" className="w-fit self-end mx-auto bg-brandy-punch-500 text-brandy-punch-50">Sauvegarder</Button>
             </form>
             <div className='container mx-auto px-4 md:px-6 lg:px-8 columns-1 md:columns-2 lg:columns-3 break-inside-auto gap-2 w-full'>
