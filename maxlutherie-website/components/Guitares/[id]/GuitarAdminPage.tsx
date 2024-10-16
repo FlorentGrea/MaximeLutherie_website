@@ -171,7 +171,7 @@ export default function GuitarAdminPage({ guitar }: any) {
                         <div className='flex flex-col mb-4'>
                             <Card className={`grid grid-cols-1 lg:grid-cols-2 overflow-hidden bg-brandy-punch-900`}>
                                 <div className={`relative w-full aspect-square lg:order-last`}>
-                                    <div className={`absolute rounded-full aspect-square overflow-hidden w-[400%] -right-[150%] lg:-right-[302%] -top-[295%] lg:-top-[149%`}
+                                    <div className={`absolute rounded-full aspect-square overflow-hidden w-[400%] -right-[150%] lg:-right-[302%] -top-[295%] lg:-top-[149%]`}
                                     >
                                         <Image
                                             src={newGuitar.img_a2 ? newGuitar.img_a2 : '/placeholder.svg'}
@@ -241,7 +241,7 @@ export default function GuitarAdminPage({ guitar }: any) {
                         <div className='flex flex-col mb-4'>
                             <Card className={`grid grid-cols-1 lg:grid-cols-2 overflow-hidden bg-brandy-punch-900`}>
                                 <div className={`relative w-full aspect-square lg:order-last`}>
-                                    <div className={`absolute rounded-full aspect-square overflow-hidden w-[400%] -right-[150%] lg:-right-[302%] -top-[295%] lg:-top-[149%`}
+                                    <div className={`absolute rounded-full aspect-square overflow-hidden w-[400%] -right-[150%] lg:-right-[302%] -top-[295%] lg:-top-[149%]`}
                                     >
                                         <Image
                                             src={newGuitar.img_a4 ? newGuitar.img_a4 : '/placeholder.svg'}
@@ -311,7 +311,7 @@ export default function GuitarAdminPage({ guitar }: any) {
                         <div className='flex flex-col mb-4'>
                             <Card className={`grid grid-cols-1 lg:grid-cols-2 overflow-hidden bg-brandy-punch-900`}>
                                 <div className={`relative w-full aspect-square lg:order-last`}>
-                                    <div className={`absolute rounded-full aspect-square overflow-hidden w-[400%] -right-[150%] lg:-right-[302%] -top-[295%] lg:-top-[149%`}
+                                    <div className={`absolute rounded-full aspect-square overflow-hidden w-[400%] -right-[150%] lg:-right-[302%] -top-[295%] lg:-top-[149%]`}
                                     >
                                         <Image
                                             src={newGuitar.img_a6 ? newGuitar.img_a6 : '/placeholder.svg'}
