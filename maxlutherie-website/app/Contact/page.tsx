@@ -16,7 +16,7 @@ export default async function ContactPage({ searchParams }: any) {
         <div className="space-y-2 text-center">
           <h1 className="text-3xl font-bold">Contactez-nous</h1>
           <p className="text-brandy-punch-600">
-            Remplissez le formulaire ci-dessous et nous vous répondrons dès que possible.
+            Remplissez le formulaire ci-dessous et je vous répondrais dès que possible.
           </p>
         </div>
         <form className="space-y-4">
