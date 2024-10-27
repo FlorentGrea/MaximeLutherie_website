@@ -191,7 +191,7 @@ export default async function GuitarCardPage({ params }: any) {
                         </div>
                     </Card>
                 : <></>}
-                <Link href={{ pathname: '/Contact', query: { id: guitar.id }}} className="mt-4 mx-auto">
+                <Link href={{ pathname: '/Contact', query: { title_main: guitar.title_main }}} className="mt-4 mx-auto">
                     <Button className="bg-brandy-punch-500 text-brandy-punch-50">
                         Commander / Prendre contact
                     </Button>

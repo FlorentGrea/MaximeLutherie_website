@@ -8,8 +8,11 @@ import { Card, CardContent } from '@/components/ui/card';
 import Image from 'next/image';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
+import { useRouter } from 'next/navigation';
 
 export default function GuitarAdminPage({ guitar }: any) {
+    const router = useRouter()
+    const isNew = guitar ? 0 : 1
     if (!guitar) {
         guitar = {
             img_main: '', title_main: '',
@@ -77,11 +80,17 @@ export default function GuitarAdminPage({ guitar }: any) {
 
         setIsLoading(true)
         try {
-            await pb.collection(newGuitar.collectionId).update(newGuitar.id, postGuitar)
+            if (isNew)
+                await pb.collection(process.env.NEXT_PUBLIC_COLLECTION_ID!).create(postGuitar)
+            else
+                await pb.collection(process.env.NEXT_PUBLIC_COLLECTION_ID!).update(newGuitar.id, postGuitar)
         } catch (error) {
             console.error('error modifying file:', error)
         } finally {
-            location.reload()
+            if (isNew)
+                router.push('/Guitares')
+            else
+                location.reload()
         }
     }
 
